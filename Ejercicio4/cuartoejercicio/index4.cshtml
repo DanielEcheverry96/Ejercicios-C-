@@ -1,0 +1,32 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--// Leer una medida en metros y pasarla a centímetros y milímetros.-->
+<head>
+    <title>Ejercicio 4</title>
+</head>
+@{
+    var totalCentimetros = "";
+    var totalMilimetros = "";
+    if (IsPost)
+    {
+        var metros = Request["metros"];
+        var met = metros.AsFloat();
+        var centimetros = met*100;
+        var milimetros = met*1000;
+
+        totalCentimetros = centimetros + " " + "centimetros";
+        totalMilimetros = milimetros + " " + "milimetros";
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="metros">Cantidad metros:</label><br>
+            <input type="text" name="metros" />
+        </p>
+        <p><input type="submit" value=" Convertir " /></p>
+    </form>
+    <p>@totalCentimetros</p>
+    <p>@totalMilimetros</p>
+</body>
+</html>
