@@ -1,0 +1,25 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//1. Leer el nombre en una caja de texto y escribir la palabra “Hola” y
+    el nombre de la persona en una etiqueta al presionar un botón.-->
+<head>
+    <title>Ejercicio 1</title>
+</head>
+@{
+    var totalMessage = "";
+    if (IsPost)
+    {
+        var nombre = Request["Nombre"];
+        totalMessage = "Hola" + " " + nombre;
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="Nombre">Nombre:</label><br>
+            <input type="text" name="Nombre" />
+        </p>
+        <p><input type="submit" value=" Saludar " /></p>
+    </form>
+    <p>@totalMessage</p>
+</body>
+</html>
