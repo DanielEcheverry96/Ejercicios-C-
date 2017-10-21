@@ -1,0 +1,31 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//2. Leer una cantidad de minutos y mostrar el valor en segundos y en horas.-->
+<head>
+    <title>Ejercicio 1</title>
+</head>
+@{
+    var totalSeg = "";
+    var totalHor = "";
+    if (IsPost)
+    {
+        var minutos = Request["minutos"];
+        var min = minutos.AsFloat();
+        var seg = min * 60;
+        var hora = min / 60;
+        totalSeg = "Segundos" + " " + seg;
+        totalHor = "Horas" + " " + hora;
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="minutos">Cantidad de minutos:</label><br>
+            <input type="text" name="minutos" />
+        </p>
+        <p><input type="submit" value=" Calcular " /></p>
+    </form>
+    <p>@totalSeg</p>
+    <p>@totalHor</p>
+</body>
+</html>
