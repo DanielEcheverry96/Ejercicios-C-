@@ -1,0 +1,28 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//5. Leer una cantidad de dinero en pesos (Colombia) y pasarla a dolares.-->
+<head>
+    <title>Ejercicio 5</title>
+</head>
+@{
+    var totalPesosC = "";
+    if (IsPost)
+    {
+        var pesosC = Request["pesosC"];
+        var pesC = pesosC.AsFloat();
+        var dolar = pesC / 2900;
+
+        totalPesosC = dolar + " " + "dolares";
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="pesosC">Cantidad pesos col:</label><br>
+            <input type="text" name="pesosC" />
+        </p>
+        <p><input type="submit" value=" Convertir " /></p>
+    </form>
+    <p>@totalPesosC</p>
+</body>
+</html>
