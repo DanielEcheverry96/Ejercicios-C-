@@ -1,0 +1,50 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//13. Calcular las suma de 3 números, si el resultado es superior a 1000 restarle el 10% al resultado.-->
+<head>
+    <title>Ejercicio 13</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="screen" />
+</head>
+@{
+    var totalSuma = "";
+    if (IsPost)
+    {
+        var numero1 = Request["numero1"];
+        var num1 = numero1.AsFloat();
+        var numero2 = Request["numero2"];
+        var num2 = numero2.AsFloat();
+        var numero3 = Request["numero3"];
+        var num3 = numero3.AsFloat();
+        var suma = num1 + num2 + num3;
+
+        if (suma > 1000)
+        {
+            var s = suma - (suma * 0.1);
+            totalSuma = "El resultado es" + " " + s;
+        }
+        else
+        {
+            totalSuma = "El resultado es" + " " + suma;
+        }
+
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="numero1">Numero 1:</label><br>
+            <input type="text" name="numero1" />
+        </p>
+        <p>
+            <label for="numero2">Numero 2:</label><br>
+            <input type="text" name="numero2" />
+        </p>
+        <p>
+            <label for="numero3">Numero 3:</label><br>
+            <input type="text" name="numero3" />
+        </p>
+        <p><input type="submit" value=" Sumar " /></p>
+    </form>
+    <p>@totalSuma</p>
+</body>
+</html>
