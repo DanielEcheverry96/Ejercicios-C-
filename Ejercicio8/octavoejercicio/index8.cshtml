@@ -1,0 +1,41 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//8. Calcular la nota definitiva de un estudiante si esta sale de 3 notas diferentes las cuales 
+    tienen los siguientes porcentajes: 32%, 38% y 30% respectivamente.-->
+<head>
+    <title>Ejercicio 8</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="screen" />
+</head>
+@{
+    var totalDefinitiva = "";
+    if (IsPost)
+    {
+        var nota1 = Request["nota1"];
+        var not1 = nota1.AsFloat();
+        var nota2 = Request["nota2"];
+        var not2 = nota2.AsFloat();
+        var nota3 = Request["nota3"];
+        var not3 = nota3.AsFloat();
+        var total = (not1 * 0.32) + (not2 * 0.38) + (not3 * 0.3);
+        totalDefinitiva = "La nota definitiva es" + " " + total;
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="nota1">Nota 1:</label><br>
+            <input type="text" name="nota1" />
+        </p>
+        <p>
+            <label for="nota2">Nota 2:</label><br>
+            <input type="text" name="nota2" />
+        </p>
+        <p>
+            <label for="nota3">Nota 3:</label><br>
+            <input type="text" name="nota3" />
+        </p>
+        <p><input type="submit" value=" Definitiva " /></p>
+    </form>
+    <p>@totalDefinitiva</p>
+</body>
+</html>
