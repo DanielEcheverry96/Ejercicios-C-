@@ -1,0 +1,40 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//9. Hacer un algoritmo que lea el nombre y la edad de un estudiante y diga si es
+    mayor de edad (es mayor de edad si edad >= 18)-->
+<head>
+    <title>Ejercicio 9</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="screen" />
+</head>
+@{
+    var totalMessage = "";
+    if (IsPost)
+    {
+        var nombre = Request["nombre"];
+        var edad = Request["edad"];
+        var ed = edad.AsInt();
+
+        if (ed >= 18)
+        {
+            totalMessage = nombre + " " + "es mayor de edad";
+        }
+        else
+        {
+            totalMessage = nombre + " " + "es menor de edad";
+        }
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" name="nombre" />
+        </p>
+        <p>
+            <label for="edad">Edad:</label><br>
+            <input type="text" name="edad" />
+        </p>
+        <p><input type="submit" value=" Calcular " /></p>
+    </form>
+    <p>@totalMessage</p>
+</body>
+</html>
