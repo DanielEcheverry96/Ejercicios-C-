@@ -1,0 +1,35 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//10. Leer un número e indicar si dicho numero es par.-->
+<head>
+    <title>Ejercicio 10</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="screen" />
+</head>
+@{
+    var totalMessage = "";
+    if (IsPost)
+    {
+        var numero = Request["numero"];
+        var num = numero.AsInt();
+
+        if (num % 2 == 0)
+        {
+            totalMessage = "El numero" + " " + num + " " + "es PAR";
+        }
+        else
+        {
+            totalMessage = "El numero" + " " + num + " " + "es IMPAR";
+        }
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="numero">Numero:</label><br>
+            <input type="text" name="numero" />
+        </p>
+        <p><input type="submit" value=" Calcular " /></p>
+    </form>
+    <p>@totalMessage</p>
+</body>
+</html>
