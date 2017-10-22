@@ -1,0 +1,28 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//6. Calcular el valor de un producto si se le hace un descuento del 16%.-->
+<head>
+    <title>Ejercicio 6</title>
+</head>
+@{
+    var totalProducto = "";
+    if (IsPost)
+    {
+        var precio = Request["precio"];
+        var pre = precio.AsFloat();
+        var descuento = pre * 0.16;
+
+        totalProducto = "El precio final del producto es" + " " + (pre-descuento) ;
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="precio">Precio del producto:</label><br>
+            <input type="text" name="precio" />
+        </p>
+        <p><input type="submit" value=" Calcular " /></p>
+    </form>
+    <p>@totalProducto</p>
+</body>
+</html>
