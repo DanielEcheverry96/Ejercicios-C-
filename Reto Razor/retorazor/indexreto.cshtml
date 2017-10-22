@@ -1,0 +1,46 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//Validar un formulario-->
+<head>
+    <title>Ejercicio Reto Razor</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="screen" />
+</head>
+@{
+    var totalNombre = "";
+    var totalApellido = "";
+    var totalTwitter = "";
+
+    if (IsPost)
+    {
+        var nombre = Request["nombre"];
+        var apellido = Request["apellido"];
+        var twitter = Request["twitter"];
+        totalNombre = "Nombre:" + " " + nombre;
+        totalApellido = "Apellido:" + " " + apellido;
+        totalTwitter = "Twitter:" + " " + twitter;
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <center>
+        <form action="" method="post">
+            <p>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" name="nombre" required />
+            </p>
+            <p>
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" name="apellido" required/>
+            </p>
+            <p>
+                <label for="twitter">Twitter:</label><br>
+                <input type="text" name="twitter" required/>
+            </p>
+            <p><input type="submit" value=" Enviar " /></p>
+        </form>
+        <p>@totalNombre</p>
+        <p>@totalApellido</p>
+        <p>@totalTwitter</p>
+    </center>
+</body>
+</html>
+
