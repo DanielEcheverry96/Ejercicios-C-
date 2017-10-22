@@ -1,0 +1,35 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//7. Leídos la cantidad de carros y las horas que están en un estacionamiento calcular
+    la ganancia del estacionamiento si cobra a 1500 pesos la hora carro.-->
+<head>
+    <title>Ejercicio 3</title>
+</head>
+@{
+    var totalGanancia = "";
+    if (IsPost)
+    {
+        var carro = Request["carros"];
+        var car = carro.AsInt();
+        var hora = Request["horas"];
+        var hor = hora.AsInt();
+        var ganancia = car * hor * 1500;
+
+        totalGanancia = "La ganancia total es" + " " + ganancia; 
+
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="carros">Cantidad carros:</label><br>
+            <input type="text" name="carros" />
+        </p>
+        <p>
+            <label for="horas">Cantidad horas:</label><br>
+            <input type="text" name="horas" />
+        </p>
+        <p><input type="submit" value=" Ganancia " /></p>
+    </form>
+    <p>@totalGanancia</p>
+</body>
+</html>
