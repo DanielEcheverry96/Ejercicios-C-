@@ -1,0 +1,43 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<!--//12. Leer 2 números y mostrarlos en orden ascendente.-->
+<head>
+    <title>Ejercicio 12</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" media="screen" />
+</head>
+@{
+    var totalAscendente = "";
+
+    if (IsPost)
+    {
+        var numero1 = Request["numero1"];
+        var num1 = numero1.AsInt();
+        var numero2 = Request["numero2"];
+        var num2 = numero2.AsInt();
+
+        if (num1 >= num2)
+        {
+            totalAscendente = num2 + ", " + num1;
+        }
+        else
+        {
+            totalAscendente = num1 + ", " + num2;
+        }
+
+        totalAscendente = "El orden ascendente es" + " " + totalAscendente;
+    }
+}
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <label for="numero1">Numero 1:</label><br>
+            <input type="text" name="numero1" />
+        </p>
+        <p>
+            <label for="numero2">Numero 2:</label><br>
+            <input type="text" name="numero2" />
+        </p>
+        <p><input type="submit" value=" Ascendente " /></p>
+    </form>
+    <p>@totalAscendente</p>
+</body>
+</html>
